@@ -1,0 +1,96 @@
+{
+  "generated": "2026-11-11",
+  "window": {
+    "since": "2025-11-09",
+    "until": "2026-11-11"
+  },
+  "contributions": 5467,
+  "active_days": 163,
+  "days": 368,
+  "best_day": {
+    "date": "2026-11-08",
+    "count": 700
+  },
+  "repos": 48,
+  "private_repos": 48,
+  "languages": [
+    {
+      "name": "TypeScript",
+      "color": "#3178c6",
+      "pct": 67.2
+    },
+    {
+      "name": "HTML",
+      "color": "#e34c26",
+      "pct": 11.6
+    },
+    {
+      "name": "MDX",
+      "color": "#fcb32c",
+      "pct": 8.4
+    },
+    {
+      "name": "JavaScript",
+      "color": "#f1e05a",
+      "pct": 5.2
+    },
+    {
+      "name": "CSS",
+      "color": "#663399",
+      "pct": 2.9
+    },
+    {
+      "name": "Go",
+      "color": "#00ADD8",
+      "pct": 2.5
+    },
+    {
+      "name": "Other",
+      "color": "#6e7681",
+      "pct": 2.2
+    }
+  ],
+  "products": [
+    {
+      "name": "Jutif",
+      "me": 595,
+      "agents": 5790
+    },
+    {
+      "name": "Bimbelio",
+      "me": 2086,
+      "agents": 1635
+    },
+    {
+      "name": "Otaknologi",
+      "me": 710,
+      "agents": 1551
+    }
+  ],
+  "hours": [
+    564,
+    649,
+    658,
+    631,
+    589,
+    476,
+    480,
+    477,
+    421,
+    408,
+    370,
+    466,
+    240,
+    482,
+    364,
+    423,
+    482,
+    491,
+    504,
+    580,
+    779,
+    611,
+    688,
+    534
+  ]
+}
