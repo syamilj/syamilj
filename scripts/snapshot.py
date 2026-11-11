@@ -35,6 +35,17 @@ IMPACT = [
 ]
 
 
+# Systems built, shown as cards: (name, one line, where).
+BUILDS = [
+    ("AI Tutor", "24/7 exam tutor + question generator", "bimbelio"),
+    ("Tryout Engine", "IRT scoring and report cards", "bimbelio"),
+    ("WhatsApp CRM", "Inbox, broadcasts, AI replies", "bimbelio"),
+    ("Ops Agent", "Sales, admin, finance in WhatsApp", "jutif"),
+    ("AI Media Platform", "News site + paid academy", "otaknologi"),
+    ("Interview Copilot", "Realtime transcription + cues", "side build"),
+]
+
+
 # ---------------------------------------------------------------- collect
 
 def gh_graphql(query, paginate=False):
@@ -204,6 +215,21 @@ def render_hours(s, t, w=414, h=176):
     return svg(w, h, t, body, "Commits by hour of day")
 
 
+def render_builds(t, w=840, cols=3, ch=74, gap=8):
+    rows = -(-len(BUILDS) // cols)
+    h = rows * ch + (rows - 1) * gap
+    cw = (w - (cols - 1) * gap) / cols
+    body = ""
+    for i, (name, line, where) in enumerate(BUILDS):
+        x, y = (i % cols) * (cw + gap), (i // cols) * (ch + gap)
+        body += f'<rect x="{x + .5:.1f}" y="{y + .5}" width="{cw - 1:.1f}" height="{ch - 1}" rx="6" fill="none" stroke="{t["bd"]}"/>'
+        body += text(x + 14, y + 26, name, t, 13, "tx", 600)
+        body += text(x + 14, y + 45, line, t, 11.5, "tx2")
+        body += text(x + 14, y + 62, where, t, 10.5, "ag", font=MONO)
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
+            f'role="img" aria-label="Systems built"><title>Systems built</title>{body}</svg>\n')
+
+
 def fmt_k(n):
     return f"{n/1000:.1f}k" if n >= 10000 else f"{n:,}"
 
@@ -226,6 +252,7 @@ def main():
                 (str(s["active_days"]), "active days", f'best: {best["count"]} on {best_label}', False),
             ], t, "By the numbers"),
             "impact": tiles([(v, l, f, i == 0) for i, (v, l, f) in enumerate(IMPACT)], t, "Business impact"),
+            "builds": render_builds(t),
             "commits": render_commits(s, t),
             "languages": render_languages(s, t),
             "hours": render_hours(s, t),
